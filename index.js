@@ -1,8 +1,9 @@
 import axios from "axios";
 import process  from "process";
+import apiKey from "./api.js";
 
 const processData = process.argv[2]
-const apiKey = "0e542d98993ca8ae97b5ff81139f47fe"
+
 axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${processData}&units=metric&appid=${apiKey}`)
      .then(function(response){
         console.log(`It is now ${response.data.main.temp}°C in ${processData}, ${response.data.sys.country}`)
